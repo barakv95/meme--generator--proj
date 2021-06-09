@@ -10,7 +10,7 @@
 <body onload="onInit()">
     
     <header class="main-header">
-        <h1>Meme-Generator</h1>
+        <div><img src="/LOGO/LOGO.png"></div>
         <div class="main-nav">
             <button class="header-btn curr-page-btn">Gallery</button>
             <button class="header-btn">My Meme</button>
@@ -22,23 +22,24 @@
         <div class="editor-container">
             <canvas class="canvas"></canvas>
             <div class="editor-area">
-                <input type="text" class="text-line" placeholder="Enter text here..">
+                <input type="color" class="color" id="color" hidden oninput="onSetTextColor(this.value)">
+                <input type="text" class="text-line" oninput="onSetText(this.value)" placeholder="Enter text here..">
                 <div class="text-line-btns">
-                    <button>↑↓</button>
+                    <button onclick="OnSwitchLine()">↑↓</button>
                     <button>+</button>
-                    <button>♦</button>
+                    <button><img src="/LOGO/trash.png" style="width: 30px; height: 40px;"></button>
                 </div>
                 <div class="edit-text-area">
-                    <button>A+</button>
-                    <button>A-</button>
-                    <button>L</button>
-                    <button>C</button>
-                    <button>R</button>
-                    <button>🎨</button>
+                    <button onclick="onTextSizeUp()">A+</button>
+                    <button onclick="onTextSizeDown()">A-</button>
+                    <button onclick="onSetTextLeft()">L</button>
+                    <button onclick="onSetTextCenter()">C</button>
+                    <button onclick="onSetTextRight()">R</button>
+                    <button onclick="onOpenColorInput()">🎨</button>
                 </div>
                 <div class="action-area">
                     <button>Share</button>
-                    <button>Download</button>
+                    <button><a href="#"onclick="onDownloadMeme(this)">Download</a></button>
                 </div>
             </div>
         </div>

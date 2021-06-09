@@ -4,6 +4,7 @@ var gCanvas;
 var gCtx;
 var gCurrImg;
 
+
 var keyWords = {
     happy: 12,
     funny: 1
@@ -16,45 +17,47 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'Hello user',
+            txt: '',
             size: 20,
-            align: 'left',
-            color: 'red'
+            align: 'center',
+            color: 'red',
+            offsetY: 20
+        },
+        {
+            txt: '',
+            size: 20,
+            align: 'center',
+            color: 'red',
+            offsetY: 135
         }
     ] 
 };
 
 function init() {
     console.log ('init');
-    gImgs = createImgs(10)
+    gImgs = _createImgs(10)
     gCanvas = document.querySelector ('canvas');
     gCtx = gCanvas.getContext('2d')
-    drawImg()
+    onDrawImg()
 }
 
+function setText (txt){
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt;
+    var lineText = gMeme.lines[gMeme.selectedLineIdx].txt
+    onDrawImg(lineText)    
+}
 
 function  editImg(el){
     gCurrImg = el.id;
-    var selectImg = gImgs.find(img => {
-        return (img.id === gCurrImg)
+    var selectImg = gImgs.find( img => {
+        var x = img.id + '';
+         return (x === gCurrImg)
     })
-    console.log ('gCurrImg: ',gCurrImg);
-    console.log ('selectImg: ',selectImg);
-    gMeme.selectedImg = gImgs[selectImg];
-    console.log ('gMeme.selectedImg: ',gMeme.selectedImg);
-    // drawImg(gCurrImg);
-    
+    gMeme.selectedImg = selectImg.url;
+    return gMeme.selectedImg;
 }
 
-function drawImg() {
-    var img = new Image()
-    img.src = "/meme-imgs (square)/1.jpg" ;
-    img.onload = () => {
-        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-    }
-}
-
-function createImg(id){
+function _createImg(id){
     return {
         id,
         url:`/meme-imgs (square)/${id}.jpg`,
@@ -62,10 +65,55 @@ function createImg(id){
     }
 }
 
-function createImgs (num){
+function _createImgs (num){
     var imgs = [];
     for (var i =0; i<num; i++){
-        imgs[i]= createImg(i+1);
+        imgs[i]= _createImg(i+1);
     }
     return imgs;
+}
+
+function switchLine(){
+    gMeme.selectedLineIdx = (gMeme.selectedLineIdx === 0)? 1 : 0;    
+}
+
+function setTextLeft(){
+    gMeme.lines.forEach(line =>{
+        line.align = 'left'
+    })
+}
+
+function setTextCenter(){
+    gMeme.lines.forEach(line =>{
+        line.align = 'center'
+    })
+}
+
+function setTextRight(){
+    gMeme.lines.forEach(line =>{
+        line.align = 'right'
+    })
+}
+
+function textSizeUp(){
+    gMeme.lines.forEach(line =>{
+        line.size++
+    })
+}
+
+function textSizeDown(){
+    gMeme.lines.forEach(line =>{
+        line.size--
+    })
+}
+
+function setTextColor(newColor){
+    gMeme.lines.forEach(line =>{
+        line.color = newColor;
+    })
+}
+
+function downloadMeme(elLink){
+    var imgContent = gCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent
 }
