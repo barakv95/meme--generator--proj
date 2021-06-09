@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Meme-Generator</title>
+</head>
+<body onload="onInit()">
+    
+    <header class="main-header">
+        <h1>Meme-Generator</h1>
+        <div class="main-nav">
+            <button class="header-btn curr-page-btn">Gallery</button>
+            <button class="header-btn">My Meme</button>
+            <button class="header-btn">About</button>
+        </div>
+    </header>
+
+    <main class="main-layout">
+        <input name="search" type="text" placeholder="Search 🔍">
+        <div class="main-gallery">
+            <img src="/meme-imgs (square)/1.jpg" class="grid-item" onclick="onMoveItemToEdit(this)">
+            <img src="/meme-imgs (square)/2.jpg" class="grid-item">
+            <img src="/meme-imgs (square)/3.jpg" class="grid-item">
+            <img src="/meme-imgs (square)/4.jpg" class="grid-item">
+            <img src="/meme-imgs (square)/5.jpg" class="grid-item">
+            <img src="/meme-imgs (square)/6.jpg" class="grid-item">
+            <img src="/meme-imgs (square)/7.jpg" class="grid-item">
+            <img src="/meme-imgs (square)/8.jpg" class="grid-item">
+            <img src="/meme-imgs (square)/9.jpg" class="grid-item">
+            <img src="/meme-imgs (square)/10.jpg" class="grid-item">
+        </div>
+    </main>
+
+
+    <script src="/js/service.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
