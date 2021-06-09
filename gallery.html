@@ -20,7 +20,7 @@
 
     <main class="main-editor">
         <div class="editor-container">
-            <canvas class="canvs"></canvas>
+            <canvas class="canvas"></canvas>
             <div class="editor-area">
                 <input type="text" class="text-line" placeholder="Enter text here..">
                 <div class="text-line-btns">
@@ -47,19 +47,19 @@
     <main class="main-layout">
         <input name="search" type="text" placeholder="Search 🔍">
         <div class="main-gallery">
-            <img src="/meme-imgs (square)/1.jpg" class="grid-item" onclick="onMoveItemToEdit(this)">
-            <img src="/meme-imgs (square)/2.jpg" class="grid-item">
-            <img src="/meme-imgs (square)/3.jpg" class="grid-item">
-            <img src="/meme-imgs (square)/4.jpg" class="grid-item">
-            <img src="/meme-imgs (square)/5.jpg" class="grid-item">
-            <img src="/meme-imgs (square)/6.jpg" class="grid-item">
-            <img src="/meme-imgs (square)/7.jpg" class="grid-item">
-            <img src="/meme-imgs (square)/8.jpg" class="grid-item">
-            <img src="/meme-imgs (square)/9.jpg" class="grid-item">
-            <img src="/meme-imgs (square)/10.jpg" class="grid-item">
+            <img id="1" src="/meme-imgs (square)/1.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="2" src="/meme-imgs (square)/2.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="3" src="/meme-imgs (square)/3.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="4" src="/meme-imgs (square)/4.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="5" src="/meme-imgs (square)/5.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="6" src="/meme-imgs (square)/6.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="7" src="/meme-imgs (square)/7.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="8" src="/meme-imgs (square)/8.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="9" src="/meme-imgs (square)/9.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="10" src="/meme-imgs (square)/10.jpg" class="grid-item" onclick="onEditImg(event)">
         </div>
     </main>
-    
+
     <script src="/js/service.js"></script>
     <script src="/js/main.js"></script>
 </body>

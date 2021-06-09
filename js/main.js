@@ -1,12 +1,10 @@
 `use strict`
 
 function onInit() {
-    console.log ('init');
-
+    init();
 }
 
 
-function onMoveItemToEdit(el){
-    console.log ('this',el);
-    
+function onEditImg(ev){
+    editImg(ev.target);
 }
