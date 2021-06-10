@@ -12,10 +12,13 @@
     <header class="main-header">
         <div><img src="/LOGO/LOGO.png"></div>
         <div class="main-nav">
-            <button class="hamburger" onclick="openMenu" hidden>☰</button>
-            <button class="header-btn curr-page-btn">Gallery</button>
-            <button class="header-btn">My Meme</button>
-            <button class="header-btn">About</button>
+            <button class="hamburger" onclick="onOpenMenu()" hidden>☰</button>
+            <div class="nav-btns">
+                <button onclick="onCloseMenu()" class="exit" hidden>X</button>
+                <button class="header-btn curr-page-btn">Gallery</button>
+                <button class="header-btn">My Meme</button>
+                <button class="header-btn">About</button>
+            </div>
         </div>
     </header>
 
@@ -26,7 +29,7 @@
                 <input type="color" class="color" id="color" hidden oninput="onSetTextColor(this.value)">
                 <input type="text" class="text-line" oninput="onSetText(this.value)" placeholder="Enter text here..">
                 <div class="text-line-btns">
-                    <button onclick="onSwitchLine()"><img src="/LOGO/two-way.png" style="background-color: unset; width: 3rem; height: 3rem; transform: rotate(90deg);"></button>
+                    <button onclick="onSwitchLine()"><img src="/LOGO/two-way.png" style="background-color: unset; width: 3rem; height: 3rem;"></button>
                     <button onclick="onAddLine()"><img src="/LOGO/plus.png" style="width: 2rem; height: 3rem; background-color: unset;"></button>
                     <button><img src="/LOGO/trash.png" style="width: 2rem; height: 3rem;"></button>
                 </div>

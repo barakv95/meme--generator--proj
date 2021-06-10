@@ -93,3 +93,13 @@ function onDownloadMeme(elLink){
     elLink.setAttribute('download', imgName)
     downloadMeme(elLink)
 }
+
+function onOpenMenu(){
+    var elBody = document.querySelector ('body');
+    elBody.classList.add('menu-open');
+}
+
+function onCloseMenu(){
+    var elBody = document.querySelector ('body');
+    elBody.classList.remove('menu-open');
+}

@@ -12,6 +12,10 @@ body{
     background-image: linear-gradient(black, #e9eee9, black);
 }
 
+body.menu-open .nav-btns{
+    transform: translateX(0);
+}
+
 .main-header{
     display: flex;
     justify-content: space-between;
@@ -26,6 +30,10 @@ body{
 header div img {
     width: 300px;
     height: 80px;
+}
+
+.nav-btns{
+    display: flex;
 }
 
 .header-btn{
@@ -203,10 +211,64 @@ a{
         margin-inline-end: 0;
         padding: 0.3rem 1rem;
     } 
+    .editor-container {
+        gap: 60px;
+    }
 }
 
-@media (max-width: 740px){
-    .header-btn{
-        
-    } 
+@media (max-width: 800px){
+    .editor-container {
+        gap: 50px;
+    }
+}
+
+
+@media (max-width: 760px){
+    .hamburger{
+        display: block;
+    }
+    .exit{
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 10%;
+        height: 4%;
+        font-size: large;
+        font-weight: 800;
+        font-family: cursive;
+        border: 1px solid #a19d9d;
+        border-radius: 0.4rem;
+        cursor: pointer;
+    }
+    .nav-btns{
+        background-color: #cac8bd;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 50%;
+        gap: 1rem;
+        padding: 2rem;
+        transform: translateX(100%);
+        transition: transform 0.7s;
+    }
+    .editor-container {
+        gap: 30px;
+    }
+    .editor-area{
+        position: unset;
+    }
+}
+
+@media (max-width: 600px){
+    .editor-container {
+        flex-direction: column;
+    }
+    .editor-area{
+        order: -1;
+        width: 100%;
+    }
 }
