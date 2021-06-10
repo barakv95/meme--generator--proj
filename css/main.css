@@ -100,6 +100,19 @@ img:hover{
 .main-editor{
     background-color: rgb(114, 153, 114);
     border-radius: 2rem;
+    position: relative;
+}
+
+.close-editor{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.6rem;
+    font-size: large;
+    font-weight: 800;
+    font-family: cursive;
+    border: 1px solid #a19d9d;
+    border-radius: 0.4rem;
+    cursor: pointer;
 }
 
 .editor-container{
@@ -111,6 +124,7 @@ img:hover{
 
 canvas{
     background-color: white;
+    letter-spacing: 1px;
 }
 
 .editor-area{

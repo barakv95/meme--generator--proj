@@ -28,7 +28,6 @@ function onDrawImg(lineText) {
     }
 }
 
-
 function onSetText(txt){
     setText(txt);
 }
@@ -41,7 +40,7 @@ function onDrawText() {
     // gCtx.strokeRect(gCanvas.width/10,line.offsetY-15, 250, 20)
     gCtx.strokeStyle = line.color
     gCtx.fillStyle = 'white'
-    gCtx.font = `${line.size}px  Comic Sans MS`
+    gCtx.font = `${line.size}px  impact`
     gCtx.textAlign = line.align
     gCtx.fillText(line.txt, gCanvas.width/2, line.offsetY) 
     gCtx.strokeText(line.txt, gCanvas.width/2, line.offsetY)
@@ -102,4 +101,25 @@ function onOpenMenu(){
 function onCloseMenu(){
     var elBody = document.querySelector ('body');
     elBody.classList.remove('menu-open');
+}
+
+function onCloseEditor(){
+    var elEditor = document.querySelector ('.main-editor');
+    elEditor.setAttribute('hidden', true);
+}
+
+function onSearchImg(text){
+    var elImgs = document.querySelectorAll('.grid-item');
+    for (var i =0; i<elImgs.length; i++){
+        var img = elImgs[i];
+        img.setAttribute('hidden', true);
+    }
+    // console.log ('elImgs: ',elImgs);
+    var filteredImgs = searchImg(text);
+    for (var i =0; i<filteredImgs.length; i++){
+        var curImg = filteredImgs[i];
+        var elSearchedImgs =document.getElementById(curImg.id) 
+        elSearchedImgs.removeAttribute('hidden');
+    }
+
 }

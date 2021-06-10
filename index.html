@@ -23,6 +23,7 @@
     </header>
 
     <main class="main-editor" hidden>
+        <button class="close-editor" onclick="onCloseEditor()">X</button>
         <div class="editor-container">
             <canvas class="canvas"></canvas>
             <div class="editor-area">
@@ -50,7 +51,7 @@
     </main>
 
     <main class="main-layout">
-        <input name="search" type="text" placeholder="Search 🔍">
+        <input class ="search" type="text" placeholder="Search 🔍" oninput="onSearchImg(this.value)">
         <div class="main-gallery">
             <img id="1" src="/meme-imgs (square)/1.jpg" class="grid-item" onclick="onEditImg(event)">
             <img id="2" src="/meme-imgs (square)/2.jpg" class="grid-item" onclick="onEditImg(event)">
