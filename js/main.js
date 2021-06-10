@@ -9,9 +9,12 @@ function onInit() {
 
 
 function onEditImg(ev){
+    var elEditor = document.querySelector ('.main-editor');
+    elEditor.removeAttribute('hidden');
     var url = editImg(ev.target);    
     gclickedImg=url;
     onDrawImg()
+
 }
 
 function onDrawImg(lineText) {
@@ -20,30 +23,35 @@ function onDrawImg(lineText) {
     img.src = gclickedImg ;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-        if(!lineText) lineText = '';
-        drawText(lineText)
+        if(!gCurrLineText) gCurrLineText = '';
+        onDrawText(gCurrLineText)
     }
 }
+
 
 function onSetText(txt){
     setText(txt);
 }
 
-function drawText(txt) {
+function onDrawText() {
     // get data for render
     var line = gMeme.lines[gMeme.selectedLineIdx]
     // render
     gCtx.lineWidth = 1
+    // gCtx.strokeRect(gCanvas.width/10,line.offsetY-15, 250, 20)
     gCtx.strokeStyle = line.color
     gCtx.fillStyle = 'white'
     gCtx.font = `${line.size}px  Comic Sans MS`
     gCtx.textAlign = line.align
     gCtx.fillText(line.txt, gCanvas.width/2, line.offsetY) 
     gCtx.strokeText(line.txt, gCanvas.width/2, line.offsetY)
-   
 }
 
-function OnSwitchLine(){
+function onAddLine(){
+    addLine();
+}
+
+function onSwitchLine(){
     switchLine();
     var elInput = document.querySelector ('.text-line');
     elInput.value = '';

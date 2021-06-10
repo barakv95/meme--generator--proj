@@ -12,30 +12,31 @@
     <header class="main-header">
         <div><img src="/LOGO/LOGO.png"></div>
         <div class="main-nav">
+            <button class="hamburger" onclick="openMenu" hidden>☰</button>
             <button class="header-btn curr-page-btn">Gallery</button>
             <button class="header-btn">My Meme</button>
             <button class="header-btn">About</button>
         </div>
     </header>
 
-    <main class="main-editor">
+    <main class="main-editor" hidden>
         <div class="editor-container">
             <canvas class="canvas"></canvas>
             <div class="editor-area">
                 <input type="color" class="color" id="color" hidden oninput="onSetTextColor(this.value)">
                 <input type="text" class="text-line" oninput="onSetText(this.value)" placeholder="Enter text here..">
                 <div class="text-line-btns">
-                    <button onclick="OnSwitchLine()">↑↓</button>
-                    <button>+</button>
-                    <button><img src="/LOGO/trash.png" style="width: 30px; height: 40px;"></button>
+                    <button onclick="onSwitchLine()"><img src="/LOGO/two-way.png" style="background-color: unset; width: 3rem; height: 3rem; transform: rotate(90deg);"></button>
+                    <button onclick="onAddLine()"><img src="/LOGO/plus.png" style="width: 2rem; height: 3rem; background-color: unset;"></button>
+                    <button><img src="/LOGO/trash.png" style="width: 2rem; height: 3rem;"></button>
                 </div>
                 <div class="edit-text-area">
-                    <button onclick="onTextSizeUp()">A+</button>
-                    <button onclick="onTextSizeDown()">A-</button>
-                    <button onclick="onSetTextLeft()">L</button>
-                    <button onclick="onSetTextCenter()">C</button>
-                    <button onclick="onSetTextRight()">R</button>
-                    <button onclick="onOpenColorInput()">🎨</button>
+                    <button onclick="onSetTextLeft()"><img src="/LOGO/alignRight.png"></button>
+                    <button onclick="onSetTextCenter()"><img src="/LOGO/alignCenter.png"></button>
+                    <button onclick="onSetTextRight()"><img src="/LOGO/alignLeft.png"></button>
+                    <button onclick="onTextSizeUp()"><img src="/LOGO/A+.png"></button>
+                    <button onclick="onTextSizeDown()"><img src="/LOGO/A-.png"></button>
+                    <button onclick="onOpenColorInput()"><img src="/LOGO/color.png"></button>
                 </div>
                 <div class="action-area">
                     <button>Share</button>

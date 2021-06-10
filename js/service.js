@@ -22,13 +22,6 @@ var gMeme = {
             align: 'center',
             color: 'red',
             offsetY: 20
-        },
-        {
-            txt: '',
-            size: 20,
-            align: 'center',
-            color: 'red',
-            offsetY: 135
         }
     ] 
 };
@@ -42,9 +35,10 @@ function init() {
 }
 
 function setText (txt){
-    gMeme.lines[gMeme.selectedLineIdx].txt = txt;
-    var lineText = gMeme.lines[gMeme.selectedLineIdx].txt
-    onDrawImg(lineText)    
+        gMeme.lines[gMeme.selectedLineIdx].txt = txt;
+        var lineText = gMeme.lines[gMeme.selectedLineIdx].txt
+        onDrawImg(lineText) 
+        // onDrawText(lineText)
 }
 
 function  editImg(el){
@@ -73,8 +67,19 @@ function _createImgs (num){
     return imgs;
 }
 
+function addLine(){
+    if (!gMeme.lines[1]){
+        gMeme.lines.push(_createBotLine())
+    }else{
+        gMeme.lines.push(_createMidLine())
+    }
+}
+
 function switchLine(){
-    gMeme.selectedLineIdx = (gMeme.selectedLineIdx === 0)? 1 : 0;    
+    if(gMeme.selectedLineIdx === gMeme.lines.length){
+        gMeme.selectedLineIdx = 0;
+    }
+    gMeme.selectedLineIdx++
 }
 
 function setTextLeft(){
@@ -116,4 +121,24 @@ function setTextColor(newColor){
 function downloadMeme(elLink){
     var imgContent = gCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
+}
+
+function _createBotLine() {
+    return {
+            txt: '',
+            size: 20,
+            align: 'center',
+            color: 'red',
+            offsetY: 135
+            }
+}
+
+function _createMidLine() {
+    return {
+            txt: '',
+            size: 20,
+            align: 'center',
+            color: 'red',
+            offsetY: 70
+            }
 }
