@@ -309,11 +309,14 @@ a{
         flex-direction: column;
     }
     .editor-area{
-        order: -1;
         width: 100%;
     }
     .search{
         width: 100%;
         margin-bottom: 10px;
+    }
+    .color{
+        z-index: 1;
+        top:85%;
     }
 }

@@ -64,6 +64,14 @@ function onSwitchLine(){
     switchLine();
     var elInput = document.querySelector ('.text-line');
     elInput.value = '';
+    onDrawImg()
+    onDrawText()
+}
+
+function onDeleteLine(){
+    deleteLine();
+    onDrawImg()
+    onDrawText()
 }
 
 function onTextSizeUp(){
@@ -113,6 +121,7 @@ function onDownloadMeme(elLink){
     var imgName = prompt("Enter meme name..")
     elLink.setAttribute('download', imgName)
     downloadMeme(elLink)
+    
 }
 
 function onOpenMenu(){

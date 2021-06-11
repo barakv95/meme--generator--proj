@@ -83,6 +83,12 @@ function switchLine(){
     }
 }
 
+function deleteLine(){
+    var lineIdx = gMeme.selectedLineIdx;
+    gMeme.lines.splice(lineIdx,1);
+    gMeme.selectedLineIdx--
+}
+
 function setTextLeft(){
     gMeme.lines.forEach(line =>{
         line.align = 'left'
