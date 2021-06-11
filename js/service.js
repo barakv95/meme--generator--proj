@@ -21,7 +21,7 @@ var gMeme = {
             size: 20,
             align: 'center',
             color: 'black',
-            offsetY: 20
+            offsetY: 50
         }
     ] 
 };
@@ -137,30 +137,30 @@ function searchImg(text){
 function _createTopLine() {
     return {
             txt: '',
-            size: 20,
+            size: 50,
             align: 'center',
             color: 'black',
-            offsetY: 20
+            offsetY: 50
             }
 }
 
 function _createBotLine() {
     return {
             txt: '',
-            size: 20,
+            size: 50,
             align: 'center',
             color: 'black',
-            offsetY: 135
+            offsetY: 450
             }
 }
 
 function _createMidLine() {
     return {
             txt: '',
-            size: 20,
+            size: 50,
             align: 'center',
             color: 'black',
-            offsetY: 70
+            offsetY: 250
             }
 }
 

@@ -27,7 +27,9 @@ function onDrawImg(lineText) {
     var img = new Image()
     img.src = gClickedImg ;
     img.onload = () => {
-        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+        gCanvas.width = img.width;
+        gCanvas.height= img.height;
+        gCtx.drawImage(img, 0, 0)
         if(!gCurrLineText) gCurrLineText = '';
         onDrawText(gCurrLineText)
     }
@@ -41,16 +43,14 @@ function onDrawText() {
     for (var i =0; i<gMeme.lines.length; i++){
         var currLine = gMeme.lines[i]
         if (!currLine.txt) currLine.txt ='';
-        gCtx.lineWidth = 1
-        // if (gMeme.lines[0]){
-            gCtx.strokeRect(gCanvas.width/10,currLine.offsetY-15, 250, 20)
-        // }
-    gCtx.strokeStyle = currLine.color
-    gCtx.fillStyle = 'white'
-    gCtx.font = `${currLine.size}px  impact`
-    gCtx.textAlign = currLine.align
-    gCtx.fillText(currLine.txt, gCanvas.width/2, currLine.offsetY) 
-    gCtx.strokeText(currLine.txt, gCanvas.width/2, currLine.offsetY)
+        gCtx.lineWidth = 2
+        gCtx.strokeRect(gCanvas.width/17,currLine.offsetY-45, 450, 60)
+        gCtx.strokeStyle = currLine.color
+        gCtx.fillStyle = 'white'
+        gCtx.font = `${currLine.size}px  impact`
+        gCtx.textAlign = currLine.align
+        gCtx.fillText(currLine.txt, gCanvas.width/2, currLine.offsetY) 
+        gCtx.strokeText(currLine.txt, gCanvas.width/2, currLine.offsetY)
     }
 }
 
