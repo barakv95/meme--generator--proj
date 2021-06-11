@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>Meme-Generator</title>
 </head>
 <body onload="onInit()">
     
     <header class="main-header">
-        <div><img src="/LOGO/LOGO.png"></div>
+        <div><img src="LOGO/LOGO.png"></div>
         <div class="main-nav">
             <button class="hamburger" onclick="onOpenMenu()" hidden>☰</button>
             <div class="nav-btns">
@@ -30,17 +30,17 @@
                 <input type="color" class="color" id="color" hidden oninput="onSetTextColor(this.value)">
                 <input type="text" class="text-line" oninput="onSetText(this.value)" placeholder="Enter text here..">
                 <div class="text-line-btns">
-                    <button onclick="onSwitchLine()"><img src="/LOGO/two-way.png" style="background-color: unset; width: 3rem; height: 3rem;"></button>
-                    <button onclick="onAddLine()"><img src="/LOGO/plus.png" style="width: 2rem; height: 3rem; background-color: unset;"></button>
-                    <button><img src="/LOGO/trash.png" style="width: 2rem; height: 3rem;"></button>
+                    <button onclick="onSwitchLine()"><img src="LOGO/two-way.png" style="background-color: unset; width: 3rem; height: 3rem;"></button>
+                    <button onclick="onAddLine()"><img src="LOGO/plus.png" style="width: 2rem; height: 3rem; background-color: unset;"></button>
+                    <button><img src="LOGO/trash.png" style="width: 2rem; height: 3rem;"></button>
                 </div>
                 <div class="edit-text-area">
-                    <button onclick="onSetTextLeft()"><img src="/LOGO/alignRight.png"></button>
-                    <button onclick="onSetTextCenter()"><img src="/LOGO/alignCenter.png"></button>
-                    <button onclick="onSetTextRight()"><img src="/LOGO/alignLeft.png"></button>
-                    <button onclick="onTextSizeUp()"><img src="/LOGO/A+.png"></button>
-                    <button onclick="onTextSizeDown()"><img src="/LOGO/A-.png"></button>
-                    <button onclick="onOpenColorInput()"><img src="/LOGO/color.png"></button>
+                    <button onclick="onSetTextLeft()"><img src="LOGO/alignRight.png"></button>
+                    <button onclick="onSetTextCenter()"><img src="LOGO/alignCenter.png"></button>
+                    <button onclick="onSetTextRight()"><img src="LOGO/alignLeft.png"></button>
+                    <button onclick="onTextSizeUp()"><img src="LOGO/A+.png"></button>
+                    <button onclick="onTextSizeDown()"><img src="LOGO/A-.png"></button>
+                    <button onclick="onOpenColorInput()"><img src="LOGO/color.png"></button>
                 </div>
                 <div class="action-area">
                     <button>Share</button>
@@ -53,16 +53,16 @@
     <main class="main-layout">
         <input class ="search" type="text" placeholder="Search 🔍" oninput="onSearchImg(this.value)">
         <div class="main-gallery">
-            <img id="1" src="/meme-imgs (square)/1.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="2" src="/meme-imgs (square)/2.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="3" src="/meme-imgs (square)/3.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="4" src="/meme-imgs (square)/4.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="5" src="/meme-imgs (square)/5.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="6" src="/meme-imgs (square)/6.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="7" src="/meme-imgs (square)/7.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="8" src="/meme-imgs (square)/8.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="9" src="/meme-imgs (square)/9.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="10" src="/meme-imgs (square)/10.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="1" src="meme-imgs (square)/1.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="2" src="meme-imgs (square)/2.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="3" src="meme-imgs (square)/3.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="4" src="meme-imgs (square)/4.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="5" src="meme-imgs (square)/5.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="6" src="meme-imgs (square)/6.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="7" src="meme-imgs (square)/7.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="8" src="meme-imgs (square)/8.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="9" src="meme-imgs (square)/9.jpg" class="grid-item" onclick="onEditImg(event)">
+            <img id="10" src="meme-imgs (square)/10.jpg" class="grid-item" onclick="onEditImg(event)">
         </div>
     </main>
 

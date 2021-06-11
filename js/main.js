@@ -1,6 +1,6 @@
 `use strict`
 
-var gclickedImg;
+var gClickedImg;
 var gCurrLineText;
 
 function onInit() {
@@ -9,10 +9,15 @@ function onInit() {
 
 
 function onEditImg(ev){
+    clearCanvas();
+    var elInput = document.querySelector ('.text-line');
+    elInput.value = '';
     var elEditor = document.querySelector ('.main-editor');
     elEditor.removeAttribute('hidden');
+    var elGallery = document.querySelector ('.main-layout');
+    elGallery.style.display = 'none';
     var url = editImg(ev.target);    
-    gclickedImg=url;
+    gClickedImg=url;
     onDrawImg()
 
 }
@@ -20,7 +25,7 @@ function onEditImg(ev){
 function onDrawImg(lineText) {
     gCurrLineText=lineText;
     var img = new Image()
-    img.src = gclickedImg ;
+    img.src = gClickedImg ;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         if(!gCurrLineText) gCurrLineText = '';
@@ -33,21 +38,26 @@ function onSetText(txt){
 }
 
 function onDrawText() {
-    // get data for render
-    var line = gMeme.lines[gMeme.selectedLineIdx]
-    // render
-    gCtx.lineWidth = 1
-    // gCtx.strokeRect(gCanvas.width/10,line.offsetY-15, 250, 20)
-    gCtx.strokeStyle = line.color
+    for (var i =0; i<gMeme.lines.length; i++){
+        var currLine = gMeme.lines[i]
+        if (!currLine.txt) currLine.txt ='';
+        gCtx.lineWidth = 1
+        // if (gMeme.lines[0]){
+            gCtx.strokeRect(gCanvas.width/10,currLine.offsetY-15, 250, 20)
+        // }
+    gCtx.strokeStyle = currLine.color
     gCtx.fillStyle = 'white'
-    gCtx.font = `${line.size}px  impact`
-    gCtx.textAlign = line.align
-    gCtx.fillText(line.txt, gCanvas.width/2, line.offsetY) 
-    gCtx.strokeText(line.txt, gCanvas.width/2, line.offsetY)
+    gCtx.font = `${currLine.size}px  impact`
+    gCtx.textAlign = currLine.align
+    gCtx.fillText(currLine.txt, gCanvas.width/2, currLine.offsetY) 
+    gCtx.strokeText(currLine.txt, gCanvas.width/2, currLine.offsetY)
+    }
 }
 
 function onAddLine(){
     addLine();
+    var elInput = document.querySelector ('.text-line');
+    elInput.value = '';
 }
 
 function onSwitchLine(){
@@ -106,6 +116,8 @@ function onCloseMenu(){
 function onCloseEditor(){
     var elEditor = document.querySelector ('.main-editor');
     elEditor.setAttribute('hidden', true);
+    var elGallery = document.querySelector ('.main-layout');
+    elGallery.style.display = 'block';
 }
 
 function onSearchImg(text){

@@ -45,11 +45,10 @@ function init() {
     onDrawImg()
 }
 
-function setText (txt){
+function setText (txt){    
         gMeme.lines[gMeme.selectedLineIdx].txt = txt;
         var lineText = gMeme.lines[gMeme.selectedLineIdx].txt
         onDrawImg(lineText) 
-        // onDrawText(lineText)
 }
 
 function  editImg(el){
@@ -62,6 +61,12 @@ function  editImg(el){
     return gMeme.selectedImg;
 }
 
+function clearCanvas(){
+    gMeme.lines = [_createTopLine()]
+    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+    gMeme.selectedLineIdx = 0;
+}
+
 function addLine(){
     if (!gMeme.lines[1]){
         gMeme.lines.push(_createBotLine())
@@ -71,10 +76,11 @@ function addLine(){
 }
 
 function switchLine(){
-    if(gMeme.selectedLineIdx === gMeme.lines.length){
+    if(gMeme.selectedLineIdx === gMeme.lines.length-1){
         gMeme.selectedLineIdx = 0;
+    }else{
+        gMeme.selectedLineIdx++
     }
-    gMeme.selectedLineIdx++
 }
 
 function setTextLeft(){
@@ -128,12 +134,22 @@ function searchImg(text){
     return filteredImgs;
 }
 
+function _createTopLine() {
+    return {
+            txt: '',
+            size: 20,
+            align: 'center',
+            color: 'black',
+            offsetY: 20
+            }
+}
+
 function _createBotLine() {
     return {
             txt: '',
             size: 20,
             align: 'center',
-            color: 'red',
+            color: 'black',
             offsetY: 135
             }
 }
@@ -143,7 +159,7 @@ function _createMidLine() {
             txt: '',
             size: 20,
             align: 'center',
-            color: 'red',
+            color: 'black',
             offsetY: 70
             }
 }
