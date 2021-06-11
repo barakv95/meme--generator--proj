@@ -68,28 +68,40 @@ function onSwitchLine(){
 
 function onTextSizeUp(){
     textSizeUp();
+    onDrawImg()
+    onDrawText()
 }
 
 function onTextSizeDown(){
     textSizeDown();
+    onDrawImg()
+    onDrawText()
 }
 
 function onSetTextLeft(){
     setTextLeft();
+    onDrawImg()
+    onDrawText()
 }
 
 function onSetTextCenter(){
     setTextCenter();
+    onDrawImg()
+    onDrawText()
 }
 
 function onSetTextRight(){
     setTextRight();
+    onDrawImg()
+    onDrawText()
 }
 
 function onSetTextColor(color){
     setTextColor(color);
     var elColorInput = document.querySelector ('.color');
     elColorInput.setAttribute('hidden', true);
+    onDrawImg()
+    onDrawText()
 }
 
 function onOpenColorInput(){
@@ -126,7 +138,6 @@ function onSearchImg(text){
         var img = elImgs[i];
         img.setAttribute('hidden', true);
     }
-    // console.log ('elImgs: ',elImgs);
     var filteredImgs = searchImg(text);
     for (var i =0; i<filteredImgs.length; i++){
         var curImg = filteredImgs[i];

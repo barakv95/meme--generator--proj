@@ -204,11 +204,21 @@ canvas{
 }
 
 .action-area :first-child{
-background-color: rgb(4, 6, 131);
-border-radius: 0.5rem;
-color: white;
-font-weight: 600;
-font-family: cursive;
+    background-color: rgb(4, 6, 131);
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: 600;
+    font-family: cursive;
+    cursor: pointer;
+}
+
+.action-area :nth-child(2){
+    background-color: rgb(7, 102, 7);
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: 600;
+    font-family: cursive;
+    cursor: pointer;
 }
 
 .action-area :last-child{

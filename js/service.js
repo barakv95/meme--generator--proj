@@ -126,11 +126,11 @@ function downloadMeme(elLink){
 
 function searchImg(text){
     var filteredImgs = gImgs.filter(img => {
-        if (img.keyWord.includes(text)){
+        var str = img.keyWord +'';
+        if (str.includes(text)){
             return img
         }
     })
-    console.log ('filteredImgs: ',filteredImgs);
     return filteredImgs;
 }
 
