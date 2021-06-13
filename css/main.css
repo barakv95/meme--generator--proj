@@ -152,13 +152,6 @@ canvas{
     padding: 1rem;
 }
 
-.color{
-    position: absolute;
-    top: 70%;
-    left: 55%;
-    width: 50px;
-}
-
 .editor-area .text-line{
     width: 90%;
     border-radius: 1rem;
@@ -258,6 +251,15 @@ canvas{
 
 a{
     text-decoration: none;
+}
+
+footer{
+    height: 50px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: larger;
+    font-family: cursive;
 }
 
 @media (max-width: 900px){

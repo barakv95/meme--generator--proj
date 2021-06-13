@@ -22,12 +22,15 @@
         </div>
     </header>
 
+    <main class="main-saved-meme">
+
+    </main>
+
     <main class="main-editor" hidden>
         <button class="close-editor" onclick="onCloseEditor()">X</button>
         <div class="editor-container">
             <canvas class="canvas"></canvas>
             <div class="editor-area">
-                <input type="color" class="color" id="color" hidden oninput="onSetTextColor(this.value)">
                 <input type="text" class="text-line" oninput="onSetText(this.value)" placeholder="Enter text here..">
                 <div class="text-line-btns">
                     <button onclick="onSwitchLine()"><img src="LOGO/two-way.png" style="background-color: unset; width: 3rem; height: 3rem;"></button>
@@ -46,6 +49,7 @@
                     <button onclick="onTextSizeUp()"><img src="LOGO/A+.png"></button>
                     <button onclick="onTextSizeDown()"><img src="LOGO/A-.png"></button>
                     <button onclick="onOpenColorInput()"><img src="LOGO/color.png"></button>
+                    <input type="color" class="color" id="color" hidden oninput="onSetTextColor(this.value)">
                 </div>
                 <div class="action-area">
                     <button>Share</button>
@@ -61,6 +65,8 @@
         
         <div class="main-gallery"></div>
     </main>
+
+    <footer>Barak Vadei &copy;</footer>
 
     <script src="js/storage-service.js"></script>
     <script src="js/meme-service.js"></script>
