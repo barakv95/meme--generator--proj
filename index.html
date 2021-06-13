@@ -34,6 +34,11 @@
                     <button onclick="onAddLine()"><img src="LOGO/plus.png" style="width: 2rem; height: 3rem; background-color: unset;"></button>
                     <button onclick="onDeleteLine()"><img src="LOGO/trash.png" style="width: 2rem; height: 3rem;"></button>
                 </div>
+                <select name="font" class="font" onchange="onChangeFont(this.value)">
+                    <option value="impact-font">Impact</option>
+                    <option value="arial">Arial</option>
+                    <option value="cursive">Cursive</option>
+                </select>
                 <div class="edit-text-area">
                     <button onclick="onSetTextLeft()"><img src="LOGO/alignRight.png"></button>
                     <button onclick="onSetTextCenter()"><img src="LOGO/alignCenter.png"></button>
@@ -53,21 +58,12 @@
 
     <main class="main-layout">
         <input class ="search" type="text" placeholder="Search 🔍" oninput="onSearchImg(this.value)">
-        <div class="main-gallery">
-            <img id="1" src="meme-imgs (square)/1.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="2" src="meme-imgs (square)/2.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="3" src="meme-imgs (square)/3.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="4" src="meme-imgs (square)/4.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="5" src="meme-imgs (square)/5.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="6" src="meme-imgs (square)/6.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="7" src="meme-imgs (square)/7.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="8" src="meme-imgs (square)/8.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="9" src="meme-imgs (square)/9.jpg" class="grid-item" onclick="onEditImg(event)">
-            <img id="10" src="meme-imgs (square)/10.jpg" class="grid-item" onclick="onEditImg(event)">
-        </div>
+        
+        <div class="main-gallery"></div>
     </main>
 
-    <script src="/js/service.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="js/storage-service.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

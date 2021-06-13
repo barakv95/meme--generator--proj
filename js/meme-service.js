@@ -1,5 +1,7 @@
 `use strict`
 
+const KEY = 'galleryImgs';
+
 var gCanvas;
 var gCtx;
 var gCurrImg;
@@ -13,12 +15,13 @@ var keyWords = {
 var gImgs;
 
 var gMeme = {
-    selectedImg: "/meme-imgs (square)/1.jpg",
+    selectedImg: "meme-imgs/1.jpg",
     selectedLineIdx: 0,
     lines: [
         {
             txt: '',
             size: 20,
+            font: 'impact-font',
             align: 'center',
             color: 'black',
             offsetY: 50
@@ -40,6 +43,7 @@ function init() {
         _createImg(9, 'cute funny baby foxy'),
         _createImg(10, 'laugh funny politics obama'),
             ]
+            saveToStorage(KEY, gImgs)
     gCanvas = document.querySelector ('canvas');
     gCtx = gCanvas.getContext('2d')
     onDrawImg()
@@ -51,13 +55,17 @@ function setText (txt){
         onDrawImg(lineText) 
 }
 
+function getLines(){
+    return gMeme.lines;
+}
+
 function  editImg(el){
     gCurrImg = el.id;
-    var selectImg = gImgs.find( img => {
+    var chosenImg = gImgs.find( img => {
         var x = img.id + '';
          return (x === gCurrImg)
     })
-    gMeme.selectedImg = selectImg.url;
+    gMeme.selectedImg = chosenImg.url;
     return gMeme.selectedImg;
 }
 
@@ -68,7 +76,9 @@ function clearCanvas(){
 }
 
 function addLine(){
-    if (!gMeme.lines[1]){
+    if (!gMeme.lines[0]){
+        gMeme.lines.push(_createTopLine())
+    }else if (!gMeme.lines[1]){
         gMeme.lines.push(_createBotLine())
     }else{
         gMeme.lines.push(_createMidLine())
@@ -83,46 +93,43 @@ function switchLine(){
     }
 }
 
+function getLineText(){
+    return gMeme.lines[gMeme.selectedLineIdx].txt;
+}
+
 function deleteLine(){
     var lineIdx = gMeme.selectedLineIdx;
     gMeme.lines.splice(lineIdx,1);
+    if (gMeme.selectedLineIdx === 0) return;
     gMeme.selectedLineIdx--
 }
 
 function setTextLeft(){
-    gMeme.lines.forEach(line =>{
-        line.align = 'left'
-    })
+    gMeme.lines[gMeme.selectedLineIdx].align = 'left'
 }
 
 function setTextCenter(){
-    gMeme.lines.forEach(line =>{
-        line.align = 'center'
-    })
+    gMeme.lines[gMeme.selectedLineIdx].align = 'center'
 }
 
 function setTextRight(){
-    gMeme.lines.forEach(line =>{
-        line.align = 'right'
-    })
+    gMeme.lines[gMeme.selectedLineIdx].align = 'right'
 }
 
 function textSizeUp(){
-    gMeme.lines.forEach(line =>{
-        line.size++
-    })
+    gMeme.lines[gMeme.selectedLineIdx].size++
 }
 
 function textSizeDown(){
-    gMeme.lines.forEach(line =>{
-        line.size--
-    })
+    gMeme.lines[gMeme.selectedLineIdx].size--
+}
+
+function changeFont(font){
+    gMeme.lines[gMeme.selectedLineIdx].font = font;
 }
 
 function setTextColor(newColor){
-    gMeme.lines.forEach(line =>{
-        line.color = newColor;
-    })
+    gMeme.lines[gMeme.selectedLineIdx].color = newColor
 }
 
 function downloadMeme(elLink){
@@ -133,7 +140,8 @@ function downloadMeme(elLink){
 function searchImg(text){
     var filteredImgs = gImgs.filter(img => {
         var str = img.keyWord +'';
-        if (str.includes(text)){
+        str = str.toUpperCase();
+        if (str.includes(text.toUpperCase())){
             return img
         }
     })
@@ -144,6 +152,7 @@ function _createTopLine() {
     return {
             txt: '',
             size: 50,
+            font: 'impact-font',
             align: 'center',
             color: 'black',
             offsetY: 50
@@ -154,6 +163,7 @@ function _createBotLine() {
     return {
             txt: '',
             size: 50,
+            font: 'impact-font',
             align: 'center',
             color: 'black',
             offsetY: 450
@@ -164,6 +174,7 @@ function _createMidLine() {
     return {
             txt: '',
             size: 50,
+            font: 'impact-font',
             align: 'center',
             color: 'black',
             offsetY: 250
@@ -173,7 +184,7 @@ function _createMidLine() {
 function _createImg(id,...keyWord){
     return {
         id,
-        url:`/meme-imgs (square)/${id}.jpg`,
+        url:`meme-imgs/${id}.jpg`,
         keyWord
     }
 }

@@ -34,6 +34,7 @@ header div img {
 
 .nav-btns{
     display: flex;
+    transform: translateY(50%)
 }
 
 .header-btn{
@@ -48,10 +49,19 @@ header div img {
     padding: 0.3rem 1.5rem;
 }
 
+.header-btn:hover:not(.curr-page-btn){
+    color:rgb(49, 48, 48);
+    text-decoration: underline;
+}
+
 .curr-page-btn{
     background-color: white;
     border-radius: 2rem;
     border:1px solid rgb(161, 157, 157)
+}
+
+.curr-page-btn:hover{
+    background-color: rgb(184, 197, 197);
 }
 
 .main-layout{
@@ -99,7 +109,7 @@ img:hover{
 }
 
 .main-editor{
-    background-color: rgb(114, 153, 114);
+    background-image: linear-gradient(#3f51b5, #f44336, #3f51b5);
     border-radius: 2rem;
     position: relative;
 }
@@ -150,10 +160,19 @@ canvas{
 }
 
 .editor-area .text-line{
-    background-color: white;
-    width: 100%;
+    width: 90%;
     border-radius: 1rem;
     flex-grow: 1;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.editor-area .font {
+    width: 50%;
+    border-radius: 1rem;
+    flex-grow: 1;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .editor-area >*:not(:last-child){
@@ -190,8 +209,9 @@ canvas{
 .edit-text-area{
     flex-grow: 1;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: 1fr 1fr;
+    /* grid-template-columns: repeat(5,2.5rem); */
+    grid-template-columns: repeat(auto-fit, minmax(2.5rem, 1fr));
+    grid-template-rows: 2.5rem 2.5rem;
     justify-content: center;
     gap: 10px;    
     padding: 5px;
